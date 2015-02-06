@@ -1,0 +1,48 @@
+<%=content_for :header do %> <-use for including->
+<%= javascript_include_tag 'jquery.validate.min'%>
+<%end%>
+
+<%= form_for(@pet) do |f| %>
+<% if @pet.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+
+	<ul>
+		<% @pet.errors.full_messages.each do |message| %>
+		<li>
+			<%= message %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<div class="field">
+	<%= f.label :name %>
+	<br>
+	<%= f.text_field :name %>
+</div>
+<div class="field">
+	<%= f.label :high_marks %>
+	<br>
+	<%= f.text_field :high_marks %>
+</div>
+<div class="field">
+	<%= f.label :sec_marks %>
+	<br>
+	<%= f.text_field :sec_marks %>
+</div>
+<div class="field">
+	<%= f.label :projects %>
+	<br>
+	<%= f.text_field :projects %>
+</div>
+<div class="field">
+	<%= f.label :file %>
+	<br>
+	<%= f.file_field :file %>
+</div>
+<div class ="actions">
+	<%= f.submit :class => "btn" %>
+</div>
+<% end %>

@@ -1,0 +1,2 @@
+module AjeetHelper
+end
